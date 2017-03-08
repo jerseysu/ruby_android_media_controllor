@@ -1,1 +1,1 @@
-# ruby_android_media_controllor
+# This is for keyevent practice for Android Media Player

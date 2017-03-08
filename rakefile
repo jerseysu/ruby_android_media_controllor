@@ -1,0 +1,25 @@
+
+namespace :automation do
+
+	desc "Install APK"
+	task :instal_android_apk do
+		
+	end
+
+	desc 'Execute Test Case'
+	task :execute, :device, :active do |t, args|
+		p args[:device]
+		p args[:active]
+		system ("adb -s #{args[:device]} shell am start -n #{args[:active]}")
+	end
+
+	def run_rake_task(name)
+		begin
+			Rake::Task[name].invoke
+		rescue Exception => e
+			puts e
+			return false
+		end
+		true
+	end
+end
