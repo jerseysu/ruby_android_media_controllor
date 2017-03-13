@@ -6,11 +6,25 @@ namespace :automation do
 		
 	end
 
-	desc 'Execute Test Case'
+	desc 'Launch App'
 	task :execute, :device, :active do |t, args|
 		p args[:device]
 		p args[:active]
-		system ("adb -s #{args[:device]} shell am start -n #{args[:active]}")
+		system ("adb -s #{args[:device]} shell am start #{args[:active]}")
+	end
+
+	desc 'Start a video'
+	task :video, :device, :active do |t, args|
+		p args[:device]
+		p args[:active]
+		system ("adb -s #{args[:device]} shell am start -a android.intent.action.VIEW #{args[:active]}")
+	end
+
+	desc 'Kill App'
+	task :stop, :device, :active do |t, args|
+		p args[:device]
+		p args[:active]
+		system ("adb -s #{args[:device]} shell am force-stop #{args[:active]}")
 	end
 
 	def run_rake_task(name)

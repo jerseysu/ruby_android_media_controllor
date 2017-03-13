@@ -14,10 +14,11 @@ class KeyEvent
 			:record => 130, #KEYCODE_MEDIA_RECORD
 			:audio_track => 222, #KEYCODE_MEDIA_AUDIO_TRACK
 			:top_menu => 226, #KEYCODE_MEDIA_TOP_MENU
-			:power_key => 26 #
+			:power_key => 26, #
+			:unlock => 82,
 		}
 	end
-	
+
 	include KeyEventTable
 
 	def initialize(device_id)
